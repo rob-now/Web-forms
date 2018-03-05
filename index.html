@@ -6,11 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="text/css" rel="stylesheet">
 
 </head>
 <body>
 <form>
+    <h2>Green fields undergo validation on submit</h2>
     <p>Your name:</p>
     <label for="first-name">First name</label>
     <input type="text" name="first-name" placeholder="First name" id="first-name">
@@ -33,15 +35,17 @@
     <label for="option-3">Option 3</label>
 
     <!--DEPARTURE AND RETURNING FLIGHT DATES-->
-    <p>Choose dates:</p>
-    <label for="departure">Departure date:</label>
-    <input type="text" id="departure">
-    <br/>
-    <label for="returning">Returning date:</label>
-    <input type="text" id="returning">
-    <br/>
-    <label for="form-destination">Type in the city you are traveling to (autocomplete functionality):</label>
-    <input type="text" name="destination" id="form-destination">
+    <div class="validation">
+        <p>Choose dates:</p>
+        <label for="departure">Departure date:</label>
+        <input type="text" id="departure">
+        <br/>
+        <label for="returning">Returning date:</label>
+        <input type="text" id="returning">
+        <br/>
+        <label for="form-destination">Type in the city you are traveling to (autocomplete functionality):</label>
+        <input type="text" name="destination" id="form-destination">
+    </div>
     <!--DEPARTURE AND RETURNING FLIGHT DATES-->
 
     <!--MESSAGE-->
