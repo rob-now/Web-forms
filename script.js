@@ -14,17 +14,43 @@ $.datepicker.setDefaults($.datepicker.regional['pl']);
 
 $(document).ready(function () {
     // Assigning datepicker to appropriate input's
-    $("#arriving").datepicker();
-    $("#leaving").datepicker();
+    $("#departure").datepicker();
+    $("#returning").datepicker();
 
-    // Validating dates before submitting
+    var availableDestinations = [
+        "Gdańsk",
+        "Warsaw",
+        "Kraków",
+        "Berlin",
+        "London",
+        "Paris",
+        "Oslo",
+        "Madrid",
+        "Rome",
+        "Moscow",
+        "New York",
+        "Chicago",
+        "Sydney"
+    ];
+    $("#form-destination").autocomplete({
+        source: availableDestinations
+    });
+
+    // Validating dates and destination before submitting
     $("#submit-form").on("click", function () {
-        var arrivingDate = $("#arriving").val();
-        var leavingDate = $("#leaving").val();
-        if (leavingDate === "" || arrivingDate === "") {
-            alert("Choose arriving and leaving dates and try again.");
-        } else if (leavingDate <= arrivingDate) {
-            alert("Leaving date must be at least 1 day after arriving date.");
+        var departureDate = $("#departure").val();
+        var returningDate = $("#returning").val();
+        var destinationVal = $("#form-destination").val();
+        if (departureDate === "" || returningDate === "") {
+            alert("Choose departure and returning dates and try again.");
+        } else if (returningDate <= departureDate) {
+            alert("Returning date must be at least 1 day after departure date.");
+        } else if (destinationVal === "") {
+            alert("Choose your destination and try again.");
+        } else if (availableDestinations.some(function (element) {
+                return element === destinationVal;
+            }) === false) {
+            alert("This is not a valid destination. Please try again.");
         } else {
             alert("Thank you! Your order has been submitted.");
         }
