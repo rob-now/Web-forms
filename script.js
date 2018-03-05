@@ -1,3 +1,4 @@
+// Setting up Polish locale for datepicker widget
 $.datepicker.regional['pl'] = {
     monthNames: ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec',
         'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'],
@@ -12,8 +13,22 @@ $.datepicker.regional['pl'] = {
 $.datepicker.setDefaults($.datepicker.regional['pl']);
 
 $(document).ready(function () {
+    // Assigning datepicker to appropriate input's
     $("#arriving").datepicker();
     $("#leaving").datepicker();
+
+    // Validating dates before submitting
+    $("#submit-form").on("click", function () {
+        var arrivingDate = $("#arriving").val();
+        var leavingDate = $("#leaving").val();
+        if (leavingDate === "" || arrivingDate === "") {
+            alert("Choose arriving and leaving dates and try again.");
+        } else if (leavingDate <= arrivingDate) {
+            alert("Leaving date must be at least 1 day after arriving date.");
+        } else {
+            alert("Thank you! Your order has been submitted.");
+        }
+    });
 });
 
 
