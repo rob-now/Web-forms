@@ -6,35 +6,49 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="text/css" rel="stylesheet">
+
 </head>
 <body>
-    <form>
-        <p>Your name:</p>
-        <label for="first-name">First name</label>
-        <input type="text" name="first-name" placeholder="First name" id="first-name">
-        <br/>
-        <label for="last-name">Last name</label>
-        <input type="text" name="last-name" placeholder="Last name" id="last-name">
+<form>
+    <p>Your name:</p>
+    <label for="first-name">First name</label>
+    <input type="text" name="first-name" placeholder="First name" id="first-name">
+    <br/>
+    <label for="last-name">Last name</label>
+    <input type="text" name="last-name" placeholder="Last name" id="last-name">
 
-        <p>Choose one option:</p>
-        <input type="radio" name="single-choice" value="yes" id="choice1">
-        <label for="choice1">Yes</label>
-        <input type="radio" name="single-choice" value="no" id="choice2">
-        <label for="choice2">No</label>
+    <p>Choose one option:</p>
+    <input type="radio" name="single-choice" value="yes" id="choice1">
+    <label for="choice1">Yes</label>
+    <input type="radio" name="single-choice" value="no" id="choice2">
+    <label for="choice2">No</label>
 
-        <p>Choose many option:</p>
-        <input type="checkbox" name="multiple-choice" value="option 1" id="option-1" checked>
-        <label for="option-1">Option 1</label>
-        <input type="checkbox" name="multiple-choice" value="option 2" id="option-2">
-        <label for="option-2">Option 2</label>
-        <input type="checkbox" name="multiple-choice" value="option 3" id="option-3">
-        <label for="option-3">Option 3</label>
+    <p>Choose many option:</p>
+    <input type="checkbox" name="multiple-choice" value="option 1" id="option-1" checked>
+    <label for="option-1">Option 1</label>
+    <input type="checkbox" name="multiple-choice" value="option 2" id="option-2">
+    <label for="option-2">Option 2</label>
+    <input type="checkbox" name="multiple-choice" value="option 3" id="option-3">
+    <label for="option-3">Option 3</label>
 
-        <p>Type here your message:</p>
-        <textarea placeholder="Type here..."></textarea>
+    <p>Choose dates:</p>
+    <label for="arriving">Arriving date:</label>
+    <input type="text" id="arriving">
+    <br/>
+    <label for="leaving">Leaving date:</label>
+    <input type="text" id="leaving">
 
-        <p>Submit the form:</p>
-        <input type="submit" name="submit" id="submit-form">
-    </form>
+    <p>Type here your message:</p>
+    <textarea placeholder="Type here..."></textarea>
+
+    <p>Submit the form:</p>
+    <input type="submit" name="submit" id="submit-form">
+</form>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
