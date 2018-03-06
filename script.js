@@ -36,24 +36,37 @@ $(document).ready(function () {
         source: availableDestinations
     });
 
-    // Validating dates and destination before submitting
+    // Validating before submitting
     $("#submit-form").on("click", function () {
+        var radioChecked = $("input[name=single-choice-age]:checked").val();
         var departureDate = $("#departure").val();
         var returningDate = $("#returning").val();
         var destinationVal = $("#form-destination").val();
+
+        // Validating age
+        if (!radioChecked) { // When no option is selected
+            console.log("You have to select your age.");
+        } else if (radioChecked == "Under 18") {
+            console.log("You selected '" + radioChecked + "'. You may not place the order.");
+        } else {
+            console.log("You selected '" + radioChecked + "'. You may place the order.");
+        }
+
+        // Validating dates and destination
         if (departureDate === "" || returningDate === "") {
-            alert("Choose departure and returning dates and try again.");
+            console.log("Choose departure and returning dates and try again.");
         } else if (returningDate <= departureDate) {
-            alert("Returning date must be at least 1 day after departure date.");
+            console.log("Returning date must be at least 1 day after departure date.");
         } else if (destinationVal === "") {
-            alert("Choose your destination and try again.");
+            console.log("Choose your destination and try again.");
         } else if (availableDestinations.some(function (element) {
                 return element === destinationVal;
             }) === false) {
-            alert("This is not a valid destination. Please try again.");
+            console.log("This is not a valid destination. Please try again.");
         } else {
-            alert("Thank you! Your order has been submitted.");
+            console.log("Thank you! Your order has been submitted.");
         }
+
     });
 });
 

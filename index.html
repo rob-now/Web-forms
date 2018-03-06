@@ -12,7 +12,7 @@
 </head>
 <body>
 <form>
-    <h2>Green fields undergo validation on submit</h2>
+    <h2>Green fields undergo validation before submitting to server</h2>
     <h3>Your name:</h3>
     <label for="first-name">First name</label>
     <input type="text" name="first-name" placeholder="First name" id="first-name">
@@ -20,11 +20,13 @@
     <label for="last-name">Last name</label>
     <input type="text" name="last-name" placeholder="Last name" id="last-name">
 
-    <h3>Choose one option:</h3>
-    <input type="radio" name="single-choice" value="yes" id="choice1">
-    <label for="choice1">Yes</label>
-    <input type="radio" name="single-choice" value="no" id="choice2">
-    <label for="choice2">No</label>
+    <div class="validation">
+        <h3>What is your age?</h3>
+        <input type="radio" name="single-choice-age" value="Under 18" id="choice1">
+        <label for="choice1">Under 18</label>
+        <input type="radio" name="single-choice-age" value="18+" id="choice2">
+        <label for="choice2">18+</label>
+    </div>
 
     <h3>Choose many option:</h3>
     <input type="checkbox" name="multiple-choice" value="option 1" id="option-1" checked>
@@ -34,10 +36,10 @@
     <input type="checkbox" name="multiple-choice" value="option 3" id="option-3">
     <label for="option-3">Option 3</label>
 
-    <!--DEPARTURE AND RETURNING FLIGHT DATES-->
+    <!--DEPARTURE AND RETURNING FLIGHT DATES + DESTINATION-->
     <div class="validation">
         <h3>Choose dates and destination:</h3>
-        <label for="departure">Departure date:</label>
+        <label for="departure">Departure date: </label>
         <input type="text" id="departure">
         <br/>
         <label for="returning">Returning date:</label>
@@ -46,7 +48,7 @@
         <label for="form-destination">Type in the city you are traveling to (autocomplete functionality):</label>
         <input type="text" name="destination" id="form-destination">
     </div>
-    <!--DEPARTURE AND RETURNING FLIGHT DATES-->
+    <!--DEPARTURE AND RETURNING FLIGHT DATES + DESTINATION-->
 
     <!--MESSAGE-->
     <h3>Type here your message:</h3>
@@ -55,7 +57,7 @@
 
     <!--SUBMIT-->
     <h3>Submit the form:</h3>
-    <input type="submit" name="submit" id="submit-form">
+    <a href="#" id="submit-form">Submit</a>
     <!--SUBMIT-->
 </form>
 
