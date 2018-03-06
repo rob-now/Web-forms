@@ -44,27 +44,37 @@ $(document).ready(function () {
         var returningDate = $("#returning").val();
         var destinationVal = $("#form-destination").val();
 
+        // Function for error message
+        function errorMessage(message) {
+            return $("#submit-message").append("<p>" + message + "</p>").addClass("message-error").fadeIn("fast");
+        }
+
+        // Function for validation success
+        function successMessage(message) {
+            return $("#submit-message").append("<p>" + message + "</p>").addClass("message-success").fadeIn("fast");
+        }
+
         // Validating age
         if (!radioChecked) { // When no option is selected
-            console.log("You have to select your age.");
+            errorMessage("You have to select your age.");
         } else if (radioChecked == "Under 18") {
-            console.log("You selected '" + radioChecked + "'. You may not place the order.");
+            errorMessage("You selected '" + radioChecked + "'. You may not place the order.");
         }
         // Validating dates and destination
         else if (departureDate === "" || returningDate === "") {
-            console.log("Choose departure and returning dates and try again.");
+            errorMessage("Choose departure and returning dates and try again.");
         } else if (returningDate <= departureDate) {
-            console.log("Returning date must be at least 1 day after departure date.");
+            errorMessage("Returning date must be at least 1 day after departure date.");
         } else if (destinationVal === "") {
-            console.log("Choose your destination and try again.");
+            errorMessage("Choose your destination and try again.");
         } else if (availableDestinations.some(function (element) {
                 return element === destinationVal;
             }) === false) {
-            console.log("This is not a valid destination. Please try again.");
+            errorMessage("This is not a valid destination. Please try again.");
         }
         // When all above conditions are false
         else {
-            console.log("Thank you! Your order has been submitted.");
+            successMessage("Thank you! Your order has been submitted.");
         }
     });
 });

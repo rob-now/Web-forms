@@ -1,5 +1,21 @@
+body {
+    padding: 0 5px;
+}
+
 .validation {
     padding: 1px 0 10px 0;
     margin: 5px 0;
     background: #6E6;
+}
+
+.message-error {
+    display: none;
+    background: #F77;
+    line-height: 2em;
+}
+
+.message-success {
+    display: none;
+    background: #6E6;
+    line-height: 2em;
 }
