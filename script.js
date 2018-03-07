@@ -53,9 +53,6 @@ $(document).ready(function () {
         var destination = $("#form-destination");
 
         var radioChecked = $("input[name=single-choice-age]:checked").val();
-        var departureDate = $("#departure").val();
-        var returningDate = $("#returning").val();
-        var destinationVal = $("#form-destination").val();
 
         const removeMessageAndClass = $("#submit-message").removeClass().children("p").detach();
         const removeInputHighlight = $("form").find(".highlighted").removeClass("highlighted");
@@ -92,18 +89,18 @@ $(document).ready(function () {
             age.addClass("highlighted");
         }
         // Validating dates and destination
-        else if (departureDate === "" || returningDate === "") {
+        else if (departure.val() === "" || returning.val() === "") {
             errorMessage("Choose departure and returning dates and try again.");
             departure.addClass("highlighted");
             returning.addClass("highlighted");
-        } else if (returningDate <= departureDate) {
+        } else if (returning.val() <= departure.val()) {
             errorMessage("Returning date must be at least 1 day after departure date.");
             returning.addClass("highlighted");
-        } else if (destinationVal === "") {
+        } else if (destination.val() === "") {
             errorMessage("Choose your destination and try again.");
             destination.addClass("highlighted");
         } else if (availableDestinations.some(function (element) {
-                return element === destinationVal;
+                return element === destination.val();
             }) === false) {
             errorMessage("This is not a valid destination. Please try again.");
             destination.addClass("highlighted");
