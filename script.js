@@ -43,22 +43,24 @@ $(document).ready(function () {
         var departureDate = $("#departure").val();
         var returningDate = $("#returning").val();
         var destinationVal = $("#form-destination").val();
+        var detachMessage = $("#submit-message").children("p").detach();
 
         // Function for error message
         function errorMessage(message) {
+            detachMessage;
             return $("#submit-message").append("<p>" + message + "</p>").addClass("message-error").fadeIn("fast");
         }
 
         // Function for validation success
         function successMessage(message) {
+            detachMessage;
             return $("#submit-message").append("<p>" + message + "</p>").addClass("message-success").fadeIn("fast");
         }
 
         // Validating age
         if (!radioChecked) { // When no option is selected
-            $("#submit-message").
             errorMessage("You have to select your age.");
-        } else if (radioChecked == "Under 18") {
+        } else if (radioChecked === "Under 18") {
             errorMessage("You selected '" + radioChecked + "'. You may not place the order.");
         }
         // Validating dates and destination
@@ -82,7 +84,7 @@ $(document).ready(function () {
     });
 });
 
-// 1. Usunac message po ponownym kliknięciu submit
+// ++ 1. Usunac message po ponownym kliknięciu submit
 // 2. Podświetlić pole do ktorego odnosi sie error message
 // 3. Usunac podwietlenie z pol po ponownym kliknieciu submit
 
