@@ -39,51 +39,57 @@ $(document).ready(function () {
     // Validating before submitting
     $("#submit-form").on("click", function () {
         // Variables declaration
+        var age = $(".age");
+        var departure = $("#departure");
+        var returning = $("#returning");
+        var destination = $("#form-destination");
+        
         var radioChecked = $("input[name=single-choice-age]:checked").val();
         var departureDate = $("#departure").val();
         var returningDate = $("#returning").val();
         var destinationVal = $("#form-destination").val();
 
-        var age = $(".age");
-        var highlightAge = age.addClass("highlighted");
-
         const removeMessageAndClass = $("#submit-message").removeClass().children("p").detach();
+        const removeInputHighlight = $("form").find(".highlighted").removeClass("highlighted");
 
         // Function for error message
         function errorMessage(message) {
             removeMessageAndClass;
+            removeInputHighlight;
             return $("#submit-message").append("<p>" + message + "</p>").addClass("message-error").fadeIn("fast");
         }
 
         // Function for validation success
         function successMessage(message) {
             removeMessageAndClass;
+            removeInputHighlight;
             return $("#submit-message").append("<p>" + message + "</p>").addClass("message-success").fadeIn("fast");
         }
 
         // Validating age
         if (!radioChecked) { // When no option is selected
             errorMessage("You have to select your age.");
-            highlightAge;
+            age.addClass("highlighted");
         } else if (radioChecked === "Under 18") {
-            highlightAge;
             errorMessage("You selected '" + radioChecked + "'. You may not place the order.");
+            age.addClass("highlighted");
         }
         // Validating dates and destination
         else if (departureDate === "" || returningDate === "") {
             errorMessage("Choose departure and returning dates and try again.");
-            $("#departure").addClass("highlighted");
-            $("#returning").addClass("highlighted");
+            departure.addClass("highlighted");
+            returning.addClass("highlighted");
         } else if (returningDate <= departureDate) {
             errorMessage("Returning date must be at least 1 day after departure date.");
-            $("#returning").addClass("highlighted");
+            returning.addClass("highlighted");
         } else if (destinationVal === "") {
             errorMessage("Choose your destination and try again.");
-            $("#form-destination").addClass("highlighted");
+            destination.addClass("highlighted");
         } else if (availableDestinations.some(function (element) {
                 return element === destinationVal;
             }) === false) {
             errorMessage("This is not a valid destination. Please try again.");
+            destination.addClass("highlighted");
         }
         // When all above conditions are false
         else {
@@ -94,5 +100,5 @@ $(document).ready(function () {
 
 // ++ 1. Usunac message po ponownym kliknięciu submit
 // ++ 2. Podświetlić pole do ktorego odnosi sie error message
-// 3. Usunac podwietlenie z pol po ponownym kliknieciu submit
-
+// ++ 3. Usunac podwietlenie z pol po ponownym kliknieciu submit
+// 4. Dlaczego returning moze byc tylko 1 lub 2 dni w przod, inaczej zglasza blad?
