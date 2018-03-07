@@ -24,6 +24,12 @@ input[type=text] {
     line-height: 2em;
 }
 
+.age {
+    padding: 1px 4px 1px 1px;
+    border: 2px solid transparent;
+}
+
 .highlighted {
     border: 2px solid red;
 }
+
