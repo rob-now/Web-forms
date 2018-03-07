@@ -33,3 +33,7 @@ input[type=text] {
     border: 2px solid red;
 }
 
+textarea {
+    width: 20em;
+    height: 10em;
+}

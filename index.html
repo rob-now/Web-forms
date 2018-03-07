@@ -13,12 +13,14 @@
 <body>
 <form>
     <h2>Green fields undergo validation before submitting to server</h2>
-    <h3>Your name:</h3>
-    <label for="first-name">First name</label>
-    <input type="text" name="first-name" placeholder="First name" id="first-name">
-    <br/>
-    <label for="last-name">Last name</label>
-    <input type="text" name="last-name" placeholder="Last name" id="last-name">
+    <div class="validation">
+        <h3>Your name:</h3>
+        <label for="first-name">First name</label>
+        <input type="text" name="first-name" placeholder="First name" id="first-name">
+        <br/>
+        <label for="last-name">Last name</label>
+        <input type="text" name="last-name" placeholder="Last name" id="last-name">
+    </div>
 
     <div class="validation">
         <h3>What is your age?</h3>
@@ -30,13 +32,13 @@
         </span>
     </div>
 
-    <h3>Choose many option:</h3>
-    <input type="checkbox" name="multiple-choice" value="option 1" id="option-1" checked>
-    <label for="option-1">Option 1</label>
+    <h3>Choose option/s:</h3>
+    <input type="checkbox" name="multiple-choice" value="option 1" id="option-1">
+    <label for="option-1">Big baggage</label>
     <input type="checkbox" name="multiple-choice" value="option 2" id="option-2">
-    <label for="option-2">Option 2</label>
+    <label for="option-2">Extended insurance</label>
     <input type="checkbox" name="multiple-choice" value="option 3" id="option-3">
-    <label for="option-3">Option 3</label>
+    <label for="option-3">Extra seat for baby</label>
 
     <!--DEPARTURE AND RETURNING FLIGHT DATES + DESTINATION-->
     <div class="validation">
@@ -53,7 +55,7 @@
     <!--DEPARTURE AND RETURNING FLIGHT DATES + DESTINATION-->
 
     <!--MESSAGE-->
-    <h3>Type here your message:</h3>
+    <h3>Optional message:</h3>
     <textarea placeholder="Type here..."></textarea>
     <!--MESSAGE-->
 

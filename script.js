@@ -8,7 +8,7 @@ $.datepicker.regional['pl'] = {
     dayNamesShort: ['Pon', 'Wto', 'Śro', 'Czw', 'Pią', 'Sob', 'Nie'],
     dayNamesMin: ['Po', 'Wt', 'Śr', 'Cz', 'Pi', 'So', 'Ni'],
     firstDay: 0,
-    dateFormat: "d MM yy"
+    dateFormat: "yy-mm-dd"
 };
 $.datepicker.setDefaults($.datepicker.regional['pl']);
 
@@ -39,11 +39,19 @@ $(document).ready(function () {
     // Validating before submitting
     $("#submit-form").on("click", function () {
         // Variables declaration
+        var firstName = $("#first-name");
+        var lastName = $("#last-name");
+
+        // When I use one variable - nameCheck - for both conditions
+        // then the code doesn't work. Why?
+        var firstNameCheck = (/^[a-z]{3,20}$/gi);
+        var lastNameCheck = (/^[a-z]{3,20}$/gi);
+
         var age = $(".age");
         var departure = $("#departure");
         var returning = $("#returning");
         var destination = $("#form-destination");
-        
+
         var radioChecked = $("input[name=single-choice-age]:checked").val();
         var departureDate = $("#departure").val();
         var returningDate = $("#returning").val();
@@ -66,8 +74,17 @@ $(document).ready(function () {
             return $("#submit-message").append("<p>" + message + "</p>").addClass("message-success").fadeIn("fast");
         }
 
+        // Validating first and last names
+        if (!(firstNameCheck.test(firstName.val()))) {
+            errorMessage("Wrong first name. It should be 3-20 characters length (only letters allowed).");
+            firstName.addClass("highlighted");
+        }
+        else if (!(lastNameCheck.test(lastName.val()))) {
+            errorMessage("Wrong last name. It should be 3-20 characters length (only letters allowed).");
+            lastName.addClass("highlighted");
+        }
         // Validating age
-        if (!radioChecked) { // When no option is selected
+        else if (!radioChecked) { // When no option is selected
             errorMessage("You have to select your age.");
             age.addClass("highlighted");
         } else if (radioChecked === "Under 18") {
@@ -97,8 +114,3 @@ $(document).ready(function () {
         }
     });
 });
-
-// ++ 1. Usunac message po ponownym kliknięciu submit
-// ++ 2. Podświetlić pole do ktorego odnosi sie error message
-// ++ 3. Usunac podwietlenie z pol po ponownym kliknieciu submit
-// 4. Dlaczego returning moze byc tylko 1 lub 2 dni w przod, inaczej zglasza blad?
