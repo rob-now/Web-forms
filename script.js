@@ -56,6 +56,7 @@ $(document).ready(function () {
 
         // Validating age
         if (!radioChecked) { // When no option is selected
+            $("#submit-message").
             errorMessage("You have to select your age.");
         } else if (radioChecked == "Under 18") {
             errorMessage("You selected '" + radioChecked + "'. You may not place the order.");
@@ -63,6 +64,8 @@ $(document).ready(function () {
         // Validating dates and destination
         else if (departureDate === "" || returningDate === "") {
             errorMessage("Choose departure and returning dates and try again.");
+            $("#departure").addClass("highlighted");
+            $("#returning").addClass("highlighted");
         } else if (returningDate <= departureDate) {
             errorMessage("Returning date must be at least 1 day after departure date.");
         } else if (destinationVal === "") {
@@ -79,4 +82,7 @@ $(document).ready(function () {
     });
 });
 
+// 1. Usunac message po ponownym kliknięciu submit
+// 2. Podświetlić pole do ktorego odnosi sie error message
+// 3. Usunac podwietlenie z pol po ponownym kliknieciu submit
 

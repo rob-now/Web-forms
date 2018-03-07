@@ -2,6 +2,10 @@ body {
     padding: 0 5px;
 }
 
+input[type=text] {
+    margin: 5px 0;
+}
+
 .validation {
     padding: 1px 0 10px 0;
     margin: 5px 0;
@@ -18,4 +22,8 @@ body {
     display: none;
     background: #6E6;
     line-height: 2em;
+}
+
+.highlighted {
+    border: 2px solid red;
 }
